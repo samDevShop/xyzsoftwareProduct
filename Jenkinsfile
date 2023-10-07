@@ -30,8 +30,8 @@ pipeline {
     post {
         success {
             // Cleanup and notifications on success
-            sh 'sudo docker stop xyzcontainer'
-            sh 'sudo docker rm xyzcontainer'
+            // sh 'sudo docker stop xyzcontainer'
+            // sh 'sudo docker rm xyzcontainer'
             echo 'Build and/or publish completed successfully!'
         }
         failure {
