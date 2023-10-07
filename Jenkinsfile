@@ -6,21 +6,21 @@ pipeline {
             steps {
                 // Checkout code from the Git repository
                 checkout scm
-                sh 'git checkout master'
+                sh 'git checkout develop'
             }
         }
         
-        stage('Build and Publish') {
+        stage('Build Only') {
             when {
                  expression {
-                    branch 'master'
+                    branch 'develop'
                 }
                 // Trigger on commits to master 
                 
             }
             steps {
                 // Build and publish the website to port 82
-                sh 'sudo docker run -d --name xyzcontainer -p 82:80 -v $PWD:/var/www/html httpd'
+                sh 'echo "Builded Successfully"'
             }
         }
         
@@ -32,13 +32,12 @@ pipeline {
             // Cleanup and notifications on success
             // sh 'sudo docker stop xyzcontainer'
             // sh 'sudo docker rm xyzcontainer'
-            echo 'Build and/or publish completed successfully!'
+            echo 'Build completed successfully!'
         }
         failure {
             // Cleanup and notifications on failure
-            sh 'sudo docker stop xyzcontainer'
-            sh 'sudo docker rm xyzcontainer'
-            echo 'Build and/or publish failed!'
+            
+            echo 'Build  failed!'
         }
     }
 }
