@@ -1,5 +1,5 @@
 pipeline {
-    agent {pipeline 'MasterPipeline'}
+    agent {label 'test_slave'}
     
     stages {
         stage('Checkout') {
