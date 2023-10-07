@@ -15,7 +15,7 @@ pipeline {
                  expression {
                     branch 'master'
                 }
-                // Trigger on commits to master branc
+                // Trigger on commits to master branch
                 
             }
             steps {
