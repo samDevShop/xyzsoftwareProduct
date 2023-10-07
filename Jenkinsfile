@@ -31,7 +31,8 @@ pipeline {
         success {
             // Cleanup and notifications on success
             // sh 'sudo docker stop xyzcontainer'
-            // sh 'sudo docker rm xyzcontainer'
+            sh 'sudo docker build . -t xyzimage:v1.0'
+            sh 'sudo docker run -d --name xyznewcontainer -p 83:80 xyzimage:v1.0'
             echo 'Build completed successfully!'
         }
         failure {
