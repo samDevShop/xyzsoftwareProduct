@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout code from the Git repository
+                // Checkout code from the Git 
                 checkout scm
                 sh 'git checkout develop'
             }
